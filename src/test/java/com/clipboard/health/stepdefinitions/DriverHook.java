@@ -4,6 +4,7 @@ import com.clipboard.health.config.AppConfig;
 import com.clipboard.health.config.WebDriverConfig;
 import com.clipboard.health.drivers.WebDriverBuilder;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,7 +33,12 @@ public class DriverHook {
 
     WebDriver driver;
 
-    @Given("Launch the browser")
+    @Before(order = 0)
+    public void currentScenario(Scenario scenario){
+        appConfig.setScenario(scenario);
+    }
+
+    @Given("Launch the browser and hit the url")
     public void launchTheBrowser() {
         this.driver = webDriverBuilder.setupDriver(appConfig.getPlatformName());
         webDriverConfig.setDriver(this.driver, "web");
@@ -48,8 +54,8 @@ public class DriverHook {
         }
     }
 
-    @Then("^Close the (browser|app)$")
-    public void closeTheBrowser(String appType) {
+    @After(order = 0)
+    public void killDriver() {
         if (driver != null)
             driver.quit();
     }

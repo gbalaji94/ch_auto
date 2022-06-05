@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.Assert;
+
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -87,7 +88,7 @@ public class SeleniumUtils {
      * @param element WebElement
      */
     public boolean _clickIfDisplayed(WebElement element) throws Exception {
-       return _isElementVisible(element);
+        return _isElementVisible(element);
     }
 
 
@@ -119,7 +120,7 @@ public class SeleniumUtils {
     /**
      * Performs clear in an element with explicit wait
      *
-     * @param element      WebElement
+     * @param element WebElement
      */
 
     public void _clear(WebElement element) throws Exception {
@@ -150,12 +151,14 @@ public class SeleniumUtils {
     }
 
     /**
-     * Performs a scroll within the provided web element
+     * Performs a scroll within a given element by cords
      *
-     * @param webElement WebElement
+     * @param webElement
+     * @param cords
      */
-    public void _scrollWithinElement(WebElement webElement) {
-        ((JavascriptExecutor) this.driver).executeScript("arguments[0].scrollTop=500;", webElement);
+    public void _scrollWithinElement(WebElement webElement, Integer cords) {
+        String args = "arguments[0].scrollTop=" + cords + ";";
+        ((JavascriptExecutor) this.driver).executeScript(args, webElement);
     }
 
 
