@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Clipboard Health Automation Suite" verbose="1" thread-count="2" data-provider-thread-count="1" parallel="tests"
+       configfailurepolicy="continue">
+    <test name="Amazon Test">
+        <parameter name="BROWSER" value="chrome"/>
+        <parameter name="ENV" value="staging"/>
+        <parameter name="LOCALE" value="en_US"/>
+        <classes>
+            <class name="com.clipboard.health.runners.AmazonTests"/>
+        </classes>
+    </test>
+</suite>
