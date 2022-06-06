@@ -1,17 +1,14 @@
 package com.clipboard.health.stepdefinitions;
 
-import com.clipboard.health.pagefactory.AmazonHomePage;
-import com.clipboard.health.pagefactory.TelevisionsPage;
+import com.clipboard.health.pages.AmazonHomePage;
+import com.clipboard.health.pages.TelevisionsPage;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.log4j.Log4j;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.testng.Assert;
 
 @Log4j
