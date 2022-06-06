@@ -31,10 +31,10 @@ public class TelevisionsPage extends BasePage {
     @FindBy(xpath = "//a[text()='Price: High to Low']")
     private WebElement highToLowFilter;
 
-    @FindBy(xpath = "//div[@data-cel-widget='searchresult2']")
+    @FindBy(xpath = "//div[@data-cel-widget='search_result_2']")
     private WebElement secondHighestProduct;
 
-    @FindBy(xpath = "//div[@data-cel-widget='searchresult2']//h2//span")
+    @FindBy(xpath = "//div[@data-cel-widget='search_result_2']//h2//span")
     private WebElement secondHighestProductText;
 
     public boolean isBrandsDisplayed() {

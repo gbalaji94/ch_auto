@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 
 @Log4j
@@ -39,7 +40,7 @@ public class DriverHook {
     }
 
     @Given("Launch the browser and hit the url")
-    public void launchTheBrowser() {
+    public void launchTheBrowser() throws MalformedURLException {
         this.driver = webDriverBuilder.setupDriver(appConfig.getPlatformName());
         webDriverConfig.setDriver(this.driver, "web");
         driver.get(appConfig.getUrl());
