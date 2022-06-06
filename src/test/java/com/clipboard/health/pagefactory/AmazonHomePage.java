@@ -23,48 +23,48 @@ public class AmazonHomePage extends SeleniumUtils {
             @FindBy(id = "nav-logo-sprites"),
             @FindBy(xpath = "//a[@aria-label='Amazon']")
     })
-    WebElement amazonLogo;
+    private WebElement amazonLogo;
 
     @FindAll({
             @FindBy(id = "//i[@class='hm-icon nav-sprite']"),
             @FindBy(css = ".hm-icon-label")
     })
-    WebElement hamburgerIcon;
+    private WebElement hamburgerIcon;
 
     @FindBy(css = ".hmenu.hmenu-visible")
-    WebElement menuSection;
+    private WebElement menuSection;
 
     @FindBy(xpath = "//a[@class='hmenu-item']/div[normalize-space()='TV, Appliances, Electronics']")
-    WebElement tvAppliancesElectronicsLink;
+    private WebElement tvAppliancesElectronicsLink;
 
     @FindBy(xpath = "(//div[contains(text(),'main menu')])[8]")
-    WebElement subMenu;
+    private WebElement subMenu;
 
     @FindBy(xpath = "//ul//li/a[normalize-space()='Televisions']")
-    WebElement televisions;
+    private WebElement televisions;
 
     public boolean isAmazonLogoDisplayed() {
         log.debug("Landed on the Amazon Home page");
-        return _isElementVisible(amazonLogo);
+        return isElementVisible(amazonLogo);
     }
 
     public void clickOnMenu() throws Exception {
-        _click(hamburgerIcon);
+        click(hamburgerIcon);
         log.debug("Clicked on the hamburger icon");
     }
 
     public void clickOnElectronicsSection() throws Exception {
-        _scrollWithinElement(menuSection, 300);
-        _click(tvAppliancesElectronicsLink);
+        scrollWithinElement(menuSection, 300);
+        click(tvAppliancesElectronicsLink);
         log.debug("Clicked on TV, Appliances and Electronics section");
     }
 
     public boolean isSubMenuDisplayed(){
-        return _isElementVisible(subMenu);
+        return isElementVisible(subMenu);
     }
 
     public void clickOnTelevisions() throws Exception {
-        _click(televisions);
+        click(televisions);
         log.debug("Clicked on Televisions section");
     }
 }
