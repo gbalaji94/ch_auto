@@ -1,6 +1,5 @@
 package com.clipboard.health.pages;
 
-import com.clipboard.health.utils.ActionUtils;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 @Log4j
-public class TelevisionsPage extends ActionUtils {
+public class TelevisionsPage extends BasePage {
 
     WebDriver driver;
 

@@ -1,4 +1,4 @@
-package com.clipboard.health.utils;
+package com.clipboard.health.pages;
 
 import com.clipboard.health.config.AppConfig;
 import com.clipboard.health.config.LocalisationConfig;
@@ -15,14 +15,14 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 @Log4j
-public class ActionUtils {
+public class BasePage {
 
     private final WebDriver driver;
 
     AppConfig appConfig;
     LocalisationConfig localisationConfig;
 
-    public ActionUtils(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         this.appConfig = AppConfig.getBean(AppConfig.class);
         this.localisationConfig = LocalisationConfig.getBean(LocalisationConfig.class);
