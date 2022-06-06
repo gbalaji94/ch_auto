@@ -1,5 +1,6 @@
 package com.clipboard.health.config;
 
+import io.cucumber.java.Scenario;
 import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,14 @@ public class AppConfig implements ApplicationContextAware {
     private String env;
 
     private static ApplicationContext context;
+
+    private Scenario scenario;
+
+    @Bean
+    @Scope("prototype")
+    public Scenario getScenario() {
+        return this.scenario;
+    }
 
     public String getParameter(String name) {
         return Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter(name);
