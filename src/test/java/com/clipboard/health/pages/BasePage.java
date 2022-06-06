@@ -9,7 +9,6 @@ import org.openqa.selenium.interactions.Locatable;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
-import java.net.MalformedURLException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
@@ -36,10 +35,6 @@ public class BasePage {
             new FluentWait<>(driver)
                     .withTimeout(Duration.of(appConfig.getSeleniumTimeout(), ChronoUnit.SECONDS))
                     .pollingEvery(Duration.of(10, ChronoUnit.SECONDS))
-                    .ignoring(NoSuchElementException.class)
-                    .ignoring(StaleElementReferenceException.class)
-                    .ignoring(ElementNotInteractableException.class)
-                    .ignoring(ElementClickInterceptedException.class)
                     .until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception ex) {
