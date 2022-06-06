@@ -1,4 +1,4 @@
-package com.clipboard.health.pagefactory;
+package com.clipboard.health.pages;
 
 import com.clipboard.health.utils.ActionUtils;
 import lombok.extern.log4j.Log4j;
