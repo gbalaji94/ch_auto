@@ -1,7 +1,6 @@
 package com.clipboard.health.pages;
 
 import com.clipboard.health.config.AppConfig;
-import com.clipboard.health.config.LocalisationConfig;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
@@ -20,12 +19,10 @@ public class BasePage {
     private final WebDriver driver;
 
     AppConfig appConfig;
-    LocalisationConfig localisationConfig;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.appConfig = AppConfig.getBean(AppConfig.class);
-        this.localisationConfig = LocalisationConfig.getBean(LocalisationConfig.class);
     }
 
     /**
@@ -92,10 +89,6 @@ public class BasePage {
         if (!isElementVisible(element))
             throw new RuntimeException("Unable to locate the element even after waiting for " + appConfig.getSeleniumTimeout() + " seconds");
         return element.getText();
-    }
-
-    public String getString(String key) throws MalformedURLException {
-        return localisationConfig.resourceBundle().getString(key);
     }
 
 }
