@@ -5,8 +5,11 @@ import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
 import org.openqa.selenium.interactions.Locatable;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -34,6 +37,10 @@ public class BasePage {
             new FluentWait<>(driver)
                     .withTimeout(Duration.of(appConfig.getSeleniumTimeout(), ChronoUnit.SECONDS))
                     .pollingEvery(Duration.of(10, ChronoUnit.SECONDS))
+                    .ignoring(NoSuchElementException.class)
+                    .ignoring(StaleElementReferenceException.class)
+                    .ignoring(ElementNotInteractableException.class)
+                    .ignoring(ElementClickInterceptedException.class)
                     .until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception ex) {
@@ -83,6 +90,22 @@ public class BasePage {
         if (!isElementVisible(element))
             throw new RuntimeException("Unable to locate the element even after waiting for " + appConfig.getSeleniumTimeout() + " seconds");
         return element.getText();
+    }
+
+    /**
+     * This will explicitly wait for 30 seconds till the page is loaded
+     */
+    public void waitForPageLoad() {
+        if (driver != null) {
+            ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+            try {
+                Thread.sleep(3000);
+                WebDriverWait wait = new WebDriverWait(driver, Duration.of(appConfig.getSeleniumTimeout(), ChronoUnit.SECONDS));
+                wait.until(expectation);
+            } catch (Throwable error) {
+                throw new RuntimeException("Timeout waiting for Page Load Request to complete.");
+            }
+        }
     }
 
 }

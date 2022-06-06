@@ -36,7 +36,8 @@ public class WebDriverBuilder {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-                driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
+//                driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
+                driver = new ChromeDriver(chromeOptions);
             }
         }
         driver.manage().window().maximize();

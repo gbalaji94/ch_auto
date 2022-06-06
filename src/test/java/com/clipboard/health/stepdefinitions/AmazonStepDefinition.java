@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 
 @Log4j
-public class AmazonHook {
+public class AmazonStepDefinition {
 
     @Autowired
     WebDriver driver;
@@ -41,17 +41,13 @@ public class AmazonHook {
 
     @When("the subsection gets displayed, click on Televisions")
     public void theSubsectionGetsDisplayedClickOnTelevisions() throws Exception {
-        Assert.assertTrue(amazonHomePage.isSubMenuDisplayed(), "Submenu for electronics isn't displayed!");
         amazonHomePage.clickOnTelevisions();
-        Thread.sleep(50000);
     }
 
-    @When("the user lands on the television section, scroll down to brands and select Samsung")
-    public void theUserLandsOnTheTelevisionSectionScrollDownToBrandsAndSelectSamsung() throws Exception {
+    @When("the user lands on the television section, scroll down to brands and select {string}")
+    public void theUserLandsOnTheTelevisionSectionScrollDownToBrandsAndSelectSamsung(String brand) throws Exception {
         televisionsPage = new TelevisionsPage(driver);
-        Assert.assertTrue(televisionsPage.isBrandsDisplayed(), "User didn't on the televisions page!");
-        Assert.assertTrue(televisionsPage.isSamsungOptionDisplayed(), "Samsung option is not present under Brands!");
-        televisionsPage.clickOnSamsung();
+        televisionsPage.clickOnABrandByName(brand);
     }
 
     @And("sort the list by price in descending order")

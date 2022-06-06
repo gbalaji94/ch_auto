@@ -26,9 +26,7 @@ public class WebDriverConfig {
     @Primary
     @Scope("prototype")
     public WebDriver webDriver() {
-        if (drivers.containsKey("web"))
-            return drivers.get("web").get();
-        return null;
+        return drivers.get("web").get();
     }
 
 }

@@ -7,7 +7,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.spring.CucumberContextConfiguration;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -16,7 +15,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 
 
@@ -24,7 +22,7 @@ import java.net.MalformedURLException;
 @RequiredArgsConstructor
 @CucumberContextConfiguration
 @ContextConfiguration(classes = {AppConfig.class})
-public class DriverHook {
+public class DriverStepDefinitions {
 
     private final WebDriverBuilder webDriverBuilder;
 

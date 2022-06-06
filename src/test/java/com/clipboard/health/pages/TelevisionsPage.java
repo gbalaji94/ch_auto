@@ -1,6 +1,7 @@
 package com.clipboard.health.pages;
 
 import lombok.extern.log4j.Log4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,8 +49,9 @@ public class TelevisionsPage extends BasePage {
         return isElementVisible(samsung);
     }
 
-    public void clickOnSamsung() throws Exception {
-        click(samsung);
+    public void clickOnABrandByName(String brand) throws Exception {
+        waitForPageLoad();
+        click(driver.findElement(By.xpath(String.format("//div[@id='s-refinements']//span[normalize-space()='Brands']/..//following-sibling::ul//span[text()='%s']", brand))));
         log.debug("Clicked on samsung");
     }
 
