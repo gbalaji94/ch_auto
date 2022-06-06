@@ -54,6 +54,7 @@ What you need to install before running the project.
 1. Go to `http://localhost:4444/`
 2. Click on sessions.
 3. Click on the video camera icon.
+4. Password will be `secret`
 
 ### To get detailed logs for the executions
 1. Open the `src/test/resources/log4j.properties` file
