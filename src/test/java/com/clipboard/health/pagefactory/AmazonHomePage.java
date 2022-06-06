@@ -1,6 +1,6 @@
 package com.clipboard.health.pagefactory;
 
-import com.clipboard.health.utils.SeleniumUtils;
+import com.clipboard.health.utils.ActionUtils;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 @Log4j
-public class AmazonHomePage extends SeleniumUtils {
+public class AmazonHomePage extends ActionUtils {
 
     WebDriver driver;
 

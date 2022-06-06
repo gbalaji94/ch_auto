@@ -5,29 +5,24 @@ import com.clipboard.health.config.LocalisationConfig;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.Coordinates;
 import org.openqa.selenium.interactions.Locatable;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import org.testng.Assert;
 
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 @Log4j
-public class SeleniumUtils {
+public class ActionUtils {
 
     private final WebDriver driver;
 
     AppConfig appConfig;
     LocalisationConfig localisationConfig;
 
-    public SeleniumUtils(WebDriver driver) {
+    public ActionUtils(WebDriver driver) {
         this.driver = driver;
         this.appConfig = AppConfig.getBean(AppConfig.class);
         this.localisationConfig = LocalisationConfig.getBean(LocalisationConfig.class);
@@ -41,7 +36,7 @@ public class SeleniumUtils {
      */
     public boolean isElementVisible(WebElement element) {
         try {
-            new FluentWait<WebDriver>(driver)
+            new FluentWait<>(driver)
                     .withTimeout(Duration.of(appConfig.getSeleniumTimeout(), ChronoUnit.SECONDS))
                     .pollingEvery(Duration.of(10, ChronoUnit.SECONDS))
                     .ignoring(NoSuchElementException.class)
