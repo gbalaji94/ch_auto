@@ -9,7 +9,8 @@ A web automation project to automate Amazon.in and select a television with seco
 3. Loggers.
 4. Multi-browser support, fully test driven.
 5. Platform independent
-6. Docker with selenium 4
+6. Docker with selenium Grid 4
+7. Video session integration in the selenium grid dashboard.
 
 ### Result
 The second highly priced Samsung TV will be printed on the console as well as the same will be attached as a screenshot to the cucumber report 
@@ -43,10 +44,16 @@ What you need to install before running the project.
 ### Starting Selenium Hub through docker
 * To execute this docker-compose yml file use `docker-compose -f docker-compose-ch-auto.yml up`
 * To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-ch-auto.yml down`
+* Hit `http://localhost:4444/` on your favorite browser.
 
 ### To run your project
 1. Through maven `mvn clean install`
 2. Alternatively, you can also run by executing the `testNG.xml`
+
+### To view the test executions
+1. Go to `http://localhost:4444/`
+2. Click on sessions.
+3. Click on the video camera icon.
 
 ### To get detailed logs for the executions
 1. Open the `src/test/resources/log4j.properties` file
