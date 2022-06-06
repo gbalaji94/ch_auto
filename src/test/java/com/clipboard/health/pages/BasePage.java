@@ -2,7 +2,6 @@ package com.clipboard.health.pages;
 
 import com.clipboard.health.config.AppConfig;
 import lombok.extern.log4j.Log4j;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
 import org.openqa.selenium.interactions.Locatable;
